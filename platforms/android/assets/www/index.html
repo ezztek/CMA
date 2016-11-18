@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jquery.mobile-1.2.0.min.js"></script>        
+</head>
+<body>
+
+    <div data-role="page">
+        <div data-role="header"><h1>CMA</h1></div>
+        <div data-role="content"><p>V19: Welcome to Cordova App, CodePush</p></div>
+    </div>
+
+    <div id="status" style="width: 100%; height:30px;background-color:yellow;color:red;font-weight:bold;">...</div>
+    <div class="app">
+        <h1>Apache Cordova</h1>
+        <div id="deviceready">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+            <p><button id="get-picture">Get a photo</button></p>
+            <p style="padding-left: 20px;"><button id="take-picture">Take a photo</button></p>
+            <p><img id="my-photo" width="300" /></p>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

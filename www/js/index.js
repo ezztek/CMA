@@ -49,9 +49,7 @@ function getPicture(fromCamera){
   alert("fromCamera: "+fromCamera+", sType: "+sType);   
   navigator.camera.getPicture(onSuccess, onFail, {
     quality: 50,    
-    sourceType: fromCamera == true ? Camera.PictureSourceType.Camera : Camera.PictureSourceType.PHOTOLIBRARY,
-    // sourceType: Camera.PictureSourceType.Camera,
-    // sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    sourceType: fromCamera == true ? Camera.PictureSourceType.Camera : Camera.PictureSourceType.PHOTOLIBRARY,    
     destinationType: Camera.DestinationType.FILE_URI
   });
 }

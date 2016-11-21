@@ -18,7 +18,7 @@ var app = {
         console.log("##JG => "+msg);
         // alert(msg);                        
         // new CodePush(app.deploymentKey, MainApplication.this, BuildConfig.DEBUG)       
-        // codePush.checkForUpdate(app.UpdateReady, app.UpdateError)
+        // git config --global user.name sbaidachni@gmail.com
     },
 
     // Update DOM on a Received Event

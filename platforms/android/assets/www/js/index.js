@@ -15,7 +15,8 @@ var app = {
          codePush.sync(null, { updateDialog: true, installMode: InstallMode.IMMEDIATE });
         var msg = "Staging key: "+app.deploymentKeyStaging+", Prod: "+app.deploymentKeyPROD;
         document.getElementById("status").innerHTML=msg; 
-        alert(msg);                        
+        console.log("##JG => "+msg);
+        // alert(msg);                        
         // new CodePush(app.deploymentKey, MainApplication.this, BuildConfig.DEBUG)       
         // codePush.checkForUpdate(app.UpdateReady, app.UpdateError)
     },
@@ -49,9 +50,7 @@ function getPicture(fromCamera){
   alert("fromCamera: "+fromCamera+", sType: "+sType);   
   navigator.camera.getPicture(onSuccess, onFail, {
     quality: 50,    
-    sourceType: fromCamera == true ? Camera.PictureSourceType.Camera : Camera.PictureSourceType.PHOTOLIBRARY,
-    // sourceType: Camera.PictureSourceType.Camera,
-    // sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    sourceType: fromCamera == true ? Camera.PictureSourceType.Camera : Camera.PictureSourceType.PHOTOLIBRARY,    
     destinationType: Camera.DestinationType.FILE_URI
   });
 }

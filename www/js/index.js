@@ -15,7 +15,8 @@ var app = {
          codePush.sync(null, { updateDialog: true, installMode: InstallMode.IMMEDIATE });
         var msg = "Staging key: "+app.deploymentKeyStaging+", Prod: "+app.deploymentKeyPROD;
         document.getElementById("status").innerHTML=msg; 
-        alert(msg);                        
+        console.log("##JG => "+msg);
+        // alert(msg);                        
         // new CodePush(app.deploymentKey, MainApplication.this, BuildConfig.DEBUG)       
         // codePush.checkForUpdate(app.UpdateReady, app.UpdateError)
     },

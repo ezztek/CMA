@@ -11,12 +11,12 @@ var app = {
     // deviceready Event Handler => Bind any cordova events here. Common events are: 'pause', 'resume', etc.
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
-        codePush.sync();
+        // codePush.sync();
+         codePush.sync(null, { updateDialog: true, installMode: InstallMode.IMMEDIATE });
         var msg = "Staging key: "+app.deploymentKeyStaging+", Prod: "+app.deploymentKeyPROD;
         document.getElementById("status").innerHTML=msg; 
         alert(msg);                        
-        // new CodePush(app.deploymentKey, MainApplication.this, BuildConfig.DEBUG)
-        // codePush.sync(null, { updateDialog: true, installMode: InstallMode.IMMEDIATE });
+        // new CodePush(app.deploymentKey, MainApplication.this, BuildConfig.DEBUG)       
         // codePush.checkForUpdate(app.UpdateReady, app.UpdateError)
     },
 
@@ -40,11 +40,16 @@ var app = {
 app.initialize();
 
 document.getElementById('get-picture').addEventListener('click', getPicture, false);
+document.getElementById('take-picture').addEventListener('click', takePicture, false);
 
-function getPicture() {
+function takePicture(){ getPicture(true); }
+
+function getPicture(fromCamera){
+  var sType = fromCamera ? Camera.PictureSourceType.Camera : Camera.PictureSourceType.PHOTOLIBRARY;
+  alert("fromCamera: "+fromCamera+", sType: "+sType);   
   navigator.camera.getPicture(onSuccess, onFail, {
-    quality: 50,
-    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    quality: 50,    
+    sourceType: fromCamera == true ? Camera.PictureSourceType.Camera : Camera.PictureSourceType.PHOTOLIBRARY,    
     destinationType: Camera.DestinationType.FILE_URI
   });
 }

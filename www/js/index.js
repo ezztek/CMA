@@ -43,10 +43,12 @@ app.initialize();
 document.getElementById('get-picture').addEventListener('click', getPicture, false);
 document.getElementById('take-picture').addEventListener('click', takePicture, false);
 
-function takePicture(){ getPicture(true); }
+function takePicture(){ 
+  getPicture(true); 
+}
 
 function getPicture(fromCamera){
-  var sType = fromCamera ? Camera.PictureSourceType.Camera : Camera.PictureSourceType.PHOTOLIBRARY;
+  var sType = fromCamera == true ? Camera.PictureSourceType.Camera : Camera.PictureSourceType.PHOTOLIBRARY;
   alert("fromCamera: "+fromCamera+", sType: "+sType);   
   navigator.camera.getPicture(onSuccess, onFail, {
     quality: 50,    
